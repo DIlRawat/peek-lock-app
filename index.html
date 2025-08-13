@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peek Lock - Show Only What You Want</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Animated background particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="assets/icon_nobg.png" alt="Peek Lock App Icon" class="logo" />
+    <h1>Peek Lock</h1>
+    <p class="tagline">Share the moment, not your camera roll — and stop nosy friends from snoop-swiping.</p>
+    
+    <div class="cta-section">
+      <div class="store-buttons">
+        <a href="YOUR_GOOGLE_PLAY_LINK" target="_blank" class="store-btn">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Download on Google Play" />
+        </a>
+        <a href="YOUR_APP_STORE_LINK" target="_blank" class="store-btn">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on App Store" />
+        </a>
+      </div>
+    </div>
+    
+    <div class="scroll-indicator">
+      <div style="font-size: 1.5rem;">↓</div>
+      <div style="font-size: 0.9rem; margin-top: 5px;">Discover Features</div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <h2>Powerful Privacy Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">👁️</span>
+        <h3>Peek-Proof Viewing</h3>
+        <p>Curate exactly which photos and videos are visible to others. No more awkward moments from accidental swipes into private content.</p>
+      </div>
+      
+      <div class="feature-card">
+        <span class="feature-icon">📌</span>
+        <h3>App Pinning (Android)</h3>
+        <p>Lock users into Peek Lock using Android's App Pinning feature. They can't exit without your permission or passcode.</p>
+      </div>
+      
+      <div class="feature-card">
+        <span class="feature-icon">🔐</span>
+        <h3>Guided Access (iOS)</h3>
+        <p>Utilize iOS Guided Access to completely lock the app interface. Perfect control while sharing your device safely.</p>
+      </div>
+      
+      <div class="feature-card">
+        <span class="feature-icon">📱</span>
+        <h3>100% Local Storage</h3>
+        <p>Your media never leaves your device. All albums are stored locally with zero cloud uploads or data sharing.</p>
+      </div>
+      
+      <div class="feature-card">
+        <span class="feature-icon">⚡</span>
+        <h3>Instant Album Management</h3>
+        <p>Create, organize, and delete albums in seconds. Intuitive interface designed for quick, effortless management.</p>
+      </div>
+      
+      <div class="feature-card">
+        <span class="feature-icon">📖</span>
+        <h3>Built-in Setup Guide</h3>
+        <p>Step-by-step animated tutorials for App Pinning and Guided Access. Get up and running in minutes, not hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security Badge -->
+  <section class="security-badge">
+    <div class="badge">
+      <span style="font-size: 1.5rem;">🛡️</span>
+      <span>Privacy First • No Data Collection • Media Stored Locally</span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Peek Lock. Designed for privacy, built for trust.</p>
+  </footer>
+
+  <script>
+    // Create animated particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 50;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 6 + 's';
+        particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Parallax effect for hero section
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const hero = document.querySelector('.hero');
+      const rate = scrolled * -0.5;
+      hero.style.transform = `translateY(${rate}px)`;
+    });
+
+    // Animate features on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe feature cards
+    document.querySelectorAll('.feature-card').forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+      observer.observe(card);
+    });
+
+    // Initialize particles when page loads
+    window.addEventListener('load', createParticles);
+
+    // Add dynamic glow effect to logo on mouse movement
+    document.addEventListener('mousemove', (e) => {
+      const logo = document.querySelector('.logo');
+      const rect = logo.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const distance = Math.sqrt(x * x + y * y);
+      
+      if (distance < 200) {
+        const intensity = (200 - distance) / 200;
+        logo.style.filter = `drop-shadow(0 20px 60px rgba(0, 191, 255, ${0.3 + intensity * 0.4}))`;
+      }
+    });
+  </script>
+</body>
+</html>
