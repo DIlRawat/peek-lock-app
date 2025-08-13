@@ -1,23 +1,24 @@
-Peek Lock Landing Page
-Modern landing page for the Peek Lock mobile app - privacy-focused photo sharing with controlled viewing.
-🔗 View Live Site
-Setup
+# Peek Lock Mobile App Landing Page
 
-Add your app icon as assets/icon.png
-Update store links in index.html:
+This is the official landing page for Peek Lock, showcasing the app's features and providing download links for both Android and iOS platforms.
 
-Replace YOUR_GOOGLE_PLAY_LINK
-Replace YOUR_APP_STORE_LINK
+🔗 View Live Site: https://dilrawat.github.io/peek-lock-app/
 
+## Android: https://play.google.com/store/apps/details?id=com.peeklock&pcampaignid=web_share
+## iOS: https://apps.apple.com/us/app/peek-lock/id6749870086
 
-Enable GitHub Pages in repository settings
+# Peek Lock App Features
 
-Features
-
-Responsive design with smooth animations
-Direct app store download links
-Privacy-focused messaging
-No dependencies - pure HTML/CSS/JS
+- Peek-Proof Viewing - Select exactly which photos/videos are visible to prevent accidental swiping
+- App Pinning (Android) - Lock users into the app so they can't exit without permission
+- Guided Access (iOS) - Use iOS Guided Access for complete control while sharing
+- Local Storage Only - Your media never leaves your device, all albums stored locally
+- Easy Album Management - Create and delete albums quickly with intuitive interface
+- Setup Help - Built-in step-by-step guides with GIFs for App Pinning and Guided Access
 
 
-Built for Peek Lock - Show only what you want. Lock the rest.
+### Built for Peek Lock - Show only what you want. Lock the rest.
+
+
+
+
