@@ -184,6 +184,41 @@
                 transform: translateX(-50%) translateY(-5px);
             }
         }
+         /* Profile CTA Button */
+        .profile-section {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .profile-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(0, 187, 255, 0.1);
+            border: 1px solid rgba(16, 135, 255, 0.3);
+            padding: 20px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #00a6ff;
+            animation: glow 3s ease-in-out infinite;
+        }
+        .profile-button a{
+             color: #ffffff;
+            text-decoration: none;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(0, 94, 255, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(0, 115, 255, 0.5);
+            }
+        }
 
         /* Features section */
         .features {
@@ -360,6 +395,14 @@
                 <a href="https://apps.apple.com/us/app/peek-lock/id6749870086" target="_blank" class="store-btn">
                     <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                         alt="Download on App Store" />
+                </a>
+            </div>
+        </div>
+        <div class="profile-section">
+            <div class="profile-button">
+                <a href="https://dilrawat.github.io/"
+                    target="_blank">
+                    <span> View My Profile </span>
                 </a>
             </div>
         </div>
